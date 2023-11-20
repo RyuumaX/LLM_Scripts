@@ -20,7 +20,6 @@ def get_currentPrompt(index):
                  "content": f"{SYSTEM_PROMPT}"},
                 {"role": "user", "content": f"Kundenmail: {parsed_json['entries'][index]['request']['body']}"},
                 {"role": "user", "content": f"Antwort: {parsed_json['entries'][index]['response']['body']}"}]
-    # primer.extend(messages)
     return messages
 
 
@@ -31,7 +30,7 @@ def completion_with_backoff(**kwargs):
 
 if __name__ == '__main__':
 
-    # Kommandozeilenparameter definieren...
+    # define commandline arguments
     cl_argparser = argparse.ArgumentParser(
         description="Takes a JSON File with emails, LLM Responses to those emails and sends it to an OpenAI model. That model then judges the answers on quality.")
     cl_argparser.add_argument("-f", "--file", help="The path to the input json file.")
@@ -43,7 +42,7 @@ if __name__ == '__main__':
     cl_argparser.add_argument("--start", help="first entry to process from file", default=1, type=int)
     cl_argparser.add_argument("-k", "--key", help="API-Key to use")
 
-    # ...und parsen
+    # ...and parse
     args = cl_argparser.parse_args()
     file_path = args.file
     modelname = args.model
@@ -51,7 +50,7 @@ if __name__ == '__main__':
 
     dict_template = {"rating": {"from": "", "date": "", "value": ""}}
 
-    # Mails und lokale LLM Antworten aus JSON-Datei einlesen
+    # read in the local LLM's answers
     parsed_json = None
     if not file_path:
         file_path = './example_data/output.json'
@@ -70,7 +69,7 @@ if __name__ == '__main__':
     for index, entry in enumerate(list(range(start, end, 1)), start=1):
         print(f"processing entry number {index} of {num_entries}, pos: {entry + 1}")
         prompt = get_currentPrompt(entry)
-        # Leere Antworten werden vorgefiltert und auf Schlecht gesetzt, es erfolgt kein API Call
+        # if there is an empty answer just set the rating to bad, no api call needed
         if parsed_json['entries'][entry]['response']['body'] == "":
             dict_template['rating']['value'] = "Schlecht"
         else:
@@ -83,6 +82,7 @@ if __name__ == '__main__':
         parsed_json['entries'][entry].update(copy.deepcopy(dict_template))
     parsed_json['header']['ratingSysPrompt'] = SYSTEM_PROMPT
 
+    #write out ratings to file
     if not args.output:
         out_path = f"./{parsed_json['header']['model']}_responses_rated_by_{modelname}.json"
     else:
