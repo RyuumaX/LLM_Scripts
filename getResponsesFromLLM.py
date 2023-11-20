@@ -108,7 +108,7 @@ if __name__ == '__main__':
                 round(elapsed_time, 2)) + " seconds")
             entry_template['request']['body'] = parsed_json[mailIndex]['requestMail']
             entry_template['request']['subject'] = parsed_json[mailIndex]['process']
-            entry_template['response']['body'] = completion.choices[0].message.content
+            entry_template['response']['body'] = completion.choices[0].message.content.replace('\n\n', '\n')
             json_template['entries'].append(copy.deepcopy(entry_template))
 
         if not args.output:
