@@ -10,7 +10,8 @@ from tenacity import (retry, stop_after_attempt, wait_random_exponential)
 
 SYSTEM_PROMPT = f"""Du bist ein Kundenbetreuer bei einem deutschen Energieversorger.
 Unten steht eine Mail eines Kunden.
-Formuliere eine freundliche Antwortmail und gib diese aus."""
+Formuliere eine freundliche Antwortmail und gib diese aus.
+Sprich den Kunden stets mit Sie an."""
 
 
 def get_currentPrompt(index):
