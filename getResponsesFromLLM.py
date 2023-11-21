@@ -53,7 +53,7 @@ if __name__ == '__main__':
     cl_argparser.add_argument("-c", "--count", help="Number of entries to read from the input file. "
                               "If not supplied, the entire content of the file is used.", type=int)
     cl_argparser.add_argument("-s", "--server", help="Address of the Server that hosts the LLM")
-    cl_argparser.add_argument("--start", help="Number of first entry to process")
+    cl_argparser.add_argument("--start", help="Number of first entry to process", type=int)
 
     args = cl_argparser.parse_args()
     file_path = args.file
