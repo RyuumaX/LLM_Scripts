@@ -122,9 +122,9 @@ if __name__ == '__main__':
             out_path = f"/{out_path}/{modelname}_responses_{str(date.today())}.json"
         if os.path.exists(out_path):
             with open(out_path, 'w+', encoding='utf-8') as write_file:
-                oldFile = dict(json.load(write_file)[0])
+                oldFile = json.load(write_file)
                 oldFile.update(json_template)
-                json.dump(json_template, write_file, indent=4, ensure_ascii=False)
+                json.dump(oldFile, write_file, indent=4, ensure_ascii=False)
         else:
             with open(out_path, 'w', encoding='utf-8') as write_file:
                 json.dump(json_template, write_file, indent=4, ensure_ascii=False)
