@@ -56,6 +56,7 @@ if __name__ == '__main__':
     cl_argparser.add_argument("--start", help="Number of first entry to process", type=int)
 
     args = cl_argparser.parse_args()
+    start = args.start - 1
     file_path = args.file
 
     #Set some environment variables needed for openai api
@@ -90,7 +91,6 @@ if __name__ == '__main__':
         json_template['header']['hyperparams'].update(hyperparams)
 
         num_entries = args.count if args.count else len(parsed_json)
-        start = int(args.start) - 1
         end = (start + num_entries) if (start + num_entries) < len(parsed_json) else len(parsed_json)
 
         for index, entry in enumerate(list(range(start, end, 1)), start=1):
