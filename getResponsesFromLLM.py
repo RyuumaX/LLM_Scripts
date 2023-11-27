@@ -126,9 +126,11 @@ if __name__ == '__main__':
                 oldFile = json.load(write_file)
                 print(oldFile['entries'])
                 print("\n")
-                oldFile['entries'].update(json_template['entries'])
+                oldFile['entries'].append(json_template['entries'])
                 print(oldFile['entries'])
                 print("\n")
+                write_file.seek(0)
+                write_file.truncate()
                 json.dump(oldFile, write_file, indent=4, ensure_ascii=False)
         else:
             with open(out_path, 'w', encoding='utf-8') as write_file:
