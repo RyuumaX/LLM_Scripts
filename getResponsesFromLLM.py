@@ -126,7 +126,7 @@ if __name__ == '__main__':
                 oldFile = json.load(write_file)
                 print(oldFile['entries'])
                 print("\n")
-                oldFile['entries'].append(json_template['entries'])
+                oldFile['entries'].extend(json_template['entries'])
                 print(oldFile['entries'])
                 print("\n")
                 write_file.seek(0)
