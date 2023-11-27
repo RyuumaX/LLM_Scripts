@@ -124,11 +124,7 @@ if __name__ == '__main__':
             with open(out_path, 'r+', encoding='utf-8') as write_file:
                 print("Writing out data to " + out_path)
                 oldFile = json.load(write_file)
-                print(oldFile['entries'])
-                print("\n")
                 oldFile['entries'].extend(json_template['entries'])
-                print(oldFile['entries'])
-                print("\n")
                 write_file.seek(0)
                 write_file.truncate()
                 json.dump(oldFile, write_file, indent=4, ensure_ascii=False)
