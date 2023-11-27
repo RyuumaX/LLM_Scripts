@@ -116,10 +116,10 @@ if __name__ == '__main__':
             json_template['entries'].append(copy.deepcopy(entry_template))
 
         if not args.output:
-            out_path = f"./{modelname}_responses_{str(date.today())}.json"
+            out_path = f"./{modelname}_responses.json"
         else:
             out_path = args.output.strip("/")
-            out_path = f"/{out_path}/{modelname}_responses_{str(date.today())}.json"
+            out_path = f"/{out_path}/{modelname}_responses.json"
         if os.path.exists(out_path):
             with open(out_path, 'r+', encoding='utf-8') as write_file:
                 print("Writing out data to " + out_path)
