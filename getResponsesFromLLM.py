@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
             # create a completion and measure time
             prompt = buildPromptFromMail(entry)
-            print(f"processing entry number {index} of {num_entries} (ID: {entry_template['id']}), pos: {entry + 1}" + "...", end="")
+            print(f"processing entry number {index+1} of {num_entries} (ID: {entry_template['id']}), pos: {entry + 1}" + "...", end="")
             start_measure = time.time()
             completion = completion_with_backoff(model=modelname, messages=prompt, max_tokens=hyperparams['max_tokens'],
                                                  temperature=hyperparams['temperature'])
@@ -124,10 +124,10 @@ if __name__ == '__main__':
             with open(out_path, 'r+', encoding='utf-8') as write_file:
                 print("Writing out data to " + out_path)
                 oldFile = json.load(write_file)
-                print(oldFile)
+                print(type(oldFile))
                 print("\n")
                 oldFile.update(json_template)
-                print(oldFile)
+                print(type(oldFile))
                 print("\n")
                 json.dump(oldFile, write_file, indent=4, ensure_ascii=False)
         else:
