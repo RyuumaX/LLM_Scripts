@@ -94,7 +94,6 @@ if __name__ == '__main__':
         end = (start + num_entries) if (start + num_entries) < len(parsed_json) else len(parsed_json)
 
         for index, entry in enumerate(list(range(start, end, 1)), start=1):
-            print(f"processing entry number {index} of {num_entries}, pos: {entry + 1}" + "...", end="")
             # replace double newlines for single newline to save tokens
             parsed_json[index]['requestMail'] = parsed_json[index]['requestMail'].replace('\n\n', '\n')
             # Use hash of Customermail (!= prompt) as ID
@@ -103,6 +102,7 @@ if __name__ == '__main__':
 
             # create a completion and measure time
             prompt = buildPromptFromMail(index)
+            print(f"processing entry number {index} of {num_entries} (ID: {msg_hash}), pos: {entry + 1}" + "...", end="")
             start_measure = time.time()
             completion = completion_with_backoff(model=modelname, messages=prompt, max_tokens=hyperparams['max_tokens'],
                                                  temperature=hyperparams['temperature'])
