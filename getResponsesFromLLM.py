@@ -121,7 +121,7 @@ if __name__ == '__main__':
             out_path = args.output.strip("/")
             out_path = f"/{out_path}/{modelname}_responses.json"
         if os.path.exists(out_path):
-            with open(out_path, 'w+', encoding='utf-8') as write_file:
+            with open(out_path, 'r+', encoding='utf-8') as write_file:
                 print("Writing out data to " + out_path)
                 oldFile = json.load(write_file)
                 oldFile.update(json_template)
