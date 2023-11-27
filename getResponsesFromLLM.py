@@ -24,7 +24,7 @@ hyperparams = {"temperature": 0, "max_tokens": 512}
 
 def buildPromptFromMail(index):
     messages = [{"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": f"Kundenmail: {parsed_json[index]['requestMail']}".strip()}, ]
+                {"role": "user", "content": f"Kundenmail: {parsed_json[entry]['requestMail']}".strip()}, ]
     return messages
 
 
