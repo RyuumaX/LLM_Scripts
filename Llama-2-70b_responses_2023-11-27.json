@@ -1,0 +1,97 @@
+{
+    "header": {
+        "model": "Llama-2-70b",
+        "hyperparams": {
+            "temperature": 0,
+            "max_tokens": 512
+        },
+        "systemPrompt": "Du bist ein Kundenbetreuer bei einem deutschen Energieversorger.\nUnten steht eine Mail eines Kunden.\nFormuliere eine freundliche Antwortmail und gib diese aus.\nSprich den Kunden stets mit Sie an.",
+        "date": "2023-11-26"
+    },
+    "entries": [
+        {
+            "id": "240030750fdb72c1186eddf9fb2e6b53d06f82d6",
+            "request": {
+                "body": "Sehr geehrtes Energieversorgungsunternehmen,\nhiermit teile ich Ihnen meinen aktuellen Zählerstand mit: [Zählerstand].\nVielen Dank und freundliche Grüße,\n[Kunde]",
+                "subject": "Zählerablesung",
+                "tags": {}
+            },
+            "response": {
+                "body": " Sehr geehrter Herr/Frau [Kunde],\nvielen Dank für Ihre E-Mail und den angegebenen Zählerstand. Wir haben Ihre Daten erfolgreich verzeichnet und werden diese für die nächste Rechnung verarbeiten.\nWir freuen uns darauf, dass wir Ihnen continue zuverlässigen und sicheren Stromlieferanten sein können. Wir sind immer darum bemüht, unsere Dienstleistungen kontinuierlich zu verbessern und Ihnen als Kunde die bestmögliche Betreuung zu bieten.\nHaben Sie weitere Fragen oder Anliegen, stehe ich Ihnen gerne zur Verfügung.\nHerzliche Grüße,\n[Dein Name]\nKundenbetreuer\nEnergieversorgungsunternehmen",
+                "tags": {}
+            }
+        },
+        {
+            "id": "3807c4bd73a3c7e39a0133b750ef019582d6631c",
+            "request": {
+                "body": "Sehr geehrtes Kundenservice-Team,\nich möchte mich über die mangelnde Kundenbetreuung beschweren. Ich habe mehrmals versucht, Sie telefonisch zu erreichen, aber es war unmöglich, jemanden ans Telefon zu bekommen. Es wäre schön, wenn Sie Ihre Erreichbarkeit verbessern könnten.\nMit freundlichen Grüßen,\n[Name des Kunden]",
+                "subject": "Kundenbetreuung",
+                "tags": {}
+            },
+            "response": {
+                "body": " Sehr geehrter Herr/Frau [Name des Kunden],\nvielen Dank für Ihre E-Mail und die Beschwerde über die mangelnde Kundenbetreuung. Wir apologisieren für any Inconvenience this may have caused und want to assure you that we take your feedback seriously.\nWe understand that it can be frustrating when you are unable to reach us by phone. We are constantly working on improving our availability and response times. Our customer service team is available Monday through Friday from 8am to 6pm and on Saturdays from 9am to 1pm. You can also reach us via email at any time, and we will respond to your inquiry as soon as possible.\nIf you have any specific questions or concerns, please feel free to contact us again, and we will do our best to assist you. We value your business and appreciate your feedback. It helps us to improve our services and provide better support for our customers.\nThank you for your patience and understanding.\nMit freundlichen Grüßen,\n[Dein Name]\nKundenservice-Team",
+                "tags": {}
+            }
+        },
+        {
+            "id": "c5453e04edeb0d4860ee4e10a1c07d1ee7732fc4",
+            "request": {
+                "body": "Sehr geehrtes Energieversorgungsunternehmen,\nich habe heute eine Mahnung von Ihnen erhalten und möchte gerne weitere Informationen dazu haben. Könnten Sie mir bitte mitteilen, welche ausstehenden Zahlungen damit gemeint sind und wie hoch der offene Betrag ist?\nVielen Dank im Voraus.\nMit freundlichen Grüßen,\n[Name des Kunden]",
+                "subject": "Mahnwesen",
+                "tags": {}
+            },
+            "response": {
+                "body": " Sehr geehrter Herr/Frau [Name des Kunden],\nvielen Dank für Ihre Anfrage. Wir apologisieren für any Inconvenience caused by the reminder letter you received.\nRegarding your request, we kindly inform you that the outstanding amount is [insert amount] and it refers to the unpaid invoice [insert invoice number] which was due on [insert due date].\nPlease note that it is important to settle the outstanding amount as soon as possible to avoid any further reminders or penalties. You can find the payment details on the invoice or on our website under the section \"Payment\".\nIf you have already made the payment, please disregard this reminder and accept our apologies.\nIf you have any questions or concerns, please do not hesitate to contact us. We are here to help you and provide you with the best possible service.\nThank you for your prompt attention to this matter.\nMit freundlichen Grüßen,\n[Your Name]\nKundenbetreuer\nEnergieversorgungsunternehmen",
+                "tags": {}
+            }
+        }
+    ]
+}{
+    "header": {
+        "model": "Llama-2-70b",
+        "hyperparams": {
+            "temperature": 0,
+            "max_tokens": 512
+        },
+        "systemPrompt": "Du bist ein Kundenbetreuer bei einem deutschen Energieversorger.\nUnten steht eine Mail eines Kunden.\nFormuliere eine freundliche Antwortmail und gib diese aus.\nSprich den Kunden stets mit Sie an.",
+        "date": "2023-11-27"
+    },
+    "entries": [
+        {
+            "id": "240030750fdb72c1186eddf9fb2e6b53d06f82d6",
+            "request": {
+                "body": "Sehr geehrtes Energieversorgungsunternehmen,\nhiermit teile ich Ihnen meinen aktuellen Zählerstand mit: [Zählerstand].\nVielen Dank und freundliche Grüße,\n[Kunde]",
+                "subject": "Zählerablesung",
+                "tags": {}
+            },
+            "response": {
+                "body": " Sehr geehrter Herr/Frau [Kunde],\nvielen Dank für Ihre E-Mail und den angegebenen Zählerstand. Wir haben Ihre Daten erfolgreich verzeichnet und werden diese für die nächste Rechnung verarbeiten.\nWir freuen uns darauf, dass wir Ihnen continue zuverlässigen und sicheren Stromlieferanten sein können. Wir sind immer darum bemüht, unsere Dienstleistungen kontinuierlich zu verbessern und Ihnen als Kunde die bestmögliche Betreuung zu bieten.\nHaben Sie weitere Fragen oder Anliegen, stehe ich Ihnen gerne zur Verfügung.\nHerzliche Grüße,\n[Dein Name]\nKundenbetreuer\nEnergieversorgungsunternehmen",
+                "tags": {}
+            }
+        },
+        {
+            "id": "3807c4bd73a3c7e39a0133b750ef019582d6631c",
+            "request": {
+                "body": "Sehr geehrtes Kundenservice-Team,\nich möchte mich über die mangelnde Kundenbetreuung beschweren. Ich habe mehrmals versucht, Sie telefonisch zu erreichen, aber es war unmöglich, jemanden ans Telefon zu bekommen. Es wäre schön, wenn Sie Ihre Erreichbarkeit verbessern könnten.\nMit freundlichen Grüßen,\n[Name des Kunden]",
+                "subject": "Kundenbetreuung",
+                "tags": {}
+            },
+            "response": {
+                "body": " Sehr geehrter Herr/Frau [Name des Kunden],\nvielen Dank für Ihre E-Mail und die Beschwerde über die mangelnde Kundenbetreuung. Wir apologisieren für any Inconvenience this may have caused und want to assure you that we take your feedback seriously.\nWe understand that it can be frustrating when you are unable to reach us by phone. We are constantly working on improving our availability and response times. Our customer service team is available Monday through Friday from 8am to 6pm and on Saturdays from 9am to 1pm. You can also reach us via email at any time, and we will respond to your inquiry as soon as possible.\nIf you have any specific questions or concerns, please feel free to contact us again, and we will do our best to assist you. We value your business and appreciate your feedback. It helps us to improve our services and provide better support for our customers.\nThank you for your patience and understanding.\nMit freundlichen Grüßen,\n[Dein Name]\nKundenservice-Team",
+                "tags": {}
+            }
+        },
+        {
+            "id": "c5453e04edeb0d4860ee4e10a1c07d1ee7732fc4",
+            "request": {
+                "body": "Sehr geehrtes Energieversorgungsunternehmen,\nich habe heute eine Mahnung von Ihnen erhalten und möchte gerne weitere Informationen dazu haben. Könnten Sie mir bitte mitteilen, welche ausstehenden Zahlungen damit gemeint sind und wie hoch der offene Betrag ist?\nVielen Dank im Voraus.\nMit freundlichen Grüßen,\n[Name des Kunden]",
+                "subject": "Mahnwesen",
+                "tags": {}
+            },
+            "response": {
+                "body": " Sehr geehrter Herr/Frau [Name des Kunden],\nvielen Dank für Ihre Anfrage. Wir apologisieren für any Inconvenience caused by the reminder letter you received.\nRegarding your request, we kindly inform you that the outstanding amount is [insert amount] and it refers to the unpaid invoice [insert invoice number] which was due on [insert due date].\nPlease note that it is important to settle the outstanding amount as soon as possible to avoid any further reminders or penalties. You can find the payment details on the invoice or on our website under the section \"Payment\".\nIf you have already made the payment, please disregard this reminder and accept our apologies.\nIf you have any questions or concerns, please do not hesitate to contact us. We are here to help you and provide you with the best possible service.\nThank you for your prompt attention to this matter.\nMit freundlichen Grüßen,\n[Your Name]\nKundenbetreuer\nEnergieversorgungsunternehmen",
+                "tags": {}
+            }
+        }
+    ]
+}
