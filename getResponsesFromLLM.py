@@ -56,7 +56,6 @@ if __name__ == '__main__':
     cl_argparser.add_argument("--start", help="Number of first entry to process", default=1, type=int)
 
     args = cl_argparser.parse_args()
-    start = args.start - 1
     file_path = args.file
 
     #Set some environment variables needed for openai api
@@ -91,17 +90,18 @@ if __name__ == '__main__':
         json_template['header']['hyperparams'].update(hyperparams)
 
         num_entries = args.count if args.count else len(parsed_json)
+        start = args.start - 1 if args.start else 0
         end = (start + num_entries) if (start + num_entries) < len(parsed_json) else len(parsed_json)
 
-        for index, entry in enumerate(list(range(start, end, 1)), start=1):
+        for index, entry in enumerate(list(range(start, end, 1))):
             # replace double newlines for single newline to save tokens
-            parsed_json[index]['requestMail'] = parsed_json[index]['requestMail'].replace('\n\n', '\n')
+            parsed_json[entry]['requestMail'] = parsed_json[entry]['requestMail'].replace('\n\n', '\n')
             # Use hash of Customermail (!= prompt) as ID
-            msg_hash = hashlib.sha1(parsed_json[index]['requestMail'].encode("utf-8"))
+            msg_hash = hashlib.sha1(parsed_json[entry]['requestMail'].encode("utf-8"))
             entry_template['id'] = msg_hash.hexdigest()
 
             # create a completion and measure time
-            prompt = buildPromptFromMail(index)
+            prompt = buildPromptFromMail(entry)
             print(f"processing entry number {index} of {num_entries} (ID: {entry_template['id']}), pos: {entry + 1}" + "...", end="")
             start_measure = time.time()
             completion = completion_with_backoff(model=modelname, messages=prompt, max_tokens=hyperparams['max_tokens'],

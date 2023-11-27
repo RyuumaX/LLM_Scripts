@@ -59,14 +59,14 @@ if __name__ == '__main__':
         parsed_json = json.load(user_file)
 
     num_entries = args.count if args.count else len(parsed_json['entries'])
-    start = args.start - 1
+    start = args.start - 1 if args.start else 0
     end = (start + num_entries) if (start + num_entries) < len(parsed_json['entries']) else len(parsed_json['entries'])
     # print the processing parameters
     print(f"using model: {modelname}")
     print(f"first entry pos: {args.start}")
     print(f"last entry pos: {end}")
 
-    for index, entry in enumerate(list(range(start, end, 1)), start=1):
+    for index, entry in enumerate(list(range(start, end, 1))):
         print(f"processing entry number {index} of {num_entries}, pos: {entry + 1}")
         prompt = get_currentPrompt(entry)
         # if there is an empty answer just set the rating to bad, no api call needed
