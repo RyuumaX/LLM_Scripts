@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
             # create a completion and measure time
             prompt = buildPromptFromMail(index)
-            print(f"processing entry number {index} of {num_entries} (ID: {msg_hash}), pos: {entry + 1}" + "...", end="")
+            print(f"processing entry number {index} of {num_entries} (ID: {entry_template['id']}), pos: {entry + 1}" + "...", end="")
             start_measure = time.time()
             completion = completion_with_backoff(model=modelname, messages=prompt, max_tokens=hyperparams['max_tokens'],
                                                  temperature=hyperparams['temperature'])
