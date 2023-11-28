@@ -3,7 +3,7 @@ import copy
 import json
 from datetime import date
 
-import openai
+from openai import OpenAI
 from tenacity import (retry, stop_after_attempt, wait_random_exponential)
 
 SYSTEM_PROMPT = ("Hinter dem Text 'Kundenmail:' findest du die Anfrage eines Kunden an einen Kundenbetreuer. "
@@ -25,7 +25,7 @@ def get_currentPrompt(index):
 
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 def completion_with_backoff(**kwargs):
-    return openai.ChatCompletion.create(**kwargs)
+    return client.chat.completions.create(**kwargs)
 
 
 if __name__ == '__main__':
@@ -46,8 +46,11 @@ if __name__ == '__main__':
     args = cl_argparser.parse_args()
     file_path = args.file
     modelname = args.model
-    openai.api_key = args.key
 
+    client = OpenAI(api_key=args.key)
+
+    #create template dict for rating section
+    #rating gets added to the end of every entry
     dict_template = {"rating": {"from": "", "date": "", "value": ""}}
 
     # read in the local LLM's answers
