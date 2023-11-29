@@ -3,10 +3,10 @@ torchrun --nproc_per_node=1 --master_port=20001 fastchat/train/train_mem.py \
     --data_path ~/traindata/translated_tasks_de_deepl_12k.json \
     --bf16 True \
     --output_dir output_vicuna \
-    --num_train_epochs 3 \
+    --num_train_epochs 2 \
     --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 2 \
-    --gradient_accumulation_steps 16 \
+    --gradient_accumulation_steps 8 \
     --evaluation_strategy "no" \
     --save_strategy "steps" \
     --save_steps 1200 \
