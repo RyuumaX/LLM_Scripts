@@ -1,6 +1,6 @@
 torchrun --nproc_per_node=1 --master_port=20001 fastchat/train/train_mem.py \
     --model_name_or_path ~/.cache/huggingface/hub/models--jphme--Llama-2-13b-hf
-    --data_path ~/traindata/traindata.json \
+    --data_path ~/traindata/translated_tasks_de_deepl_12k.json \
     --bf16 True \
     --output_dir output_vicuna \
     --num_train_epochs 3 \
