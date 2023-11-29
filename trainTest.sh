@@ -1,4 +1,4 @@
-torchrun --nproc_per_node=1 --master_port=20001 fastchat/train/train_mem.py \
+torchrun --nproc_per_node=1 --master_port=20001 ~/FastChat/fastchat/train/train_mem.py \
     --model_name_or_path ~/.cache/huggingface/hub/models--jphme--Llama-2-13b-hf
     --data_path ~/traindata/translated_tasks_de_deepl_12k.json \
     --bf16 True \
