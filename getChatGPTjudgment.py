@@ -70,7 +70,7 @@ if __name__ == '__main__':
     print(f"last entry pos: {end}")
 
     for index, entry in enumerate(list(range(start, end, 1))):
-        print(f"processing entry number {index} of {num_entries}, pos: {entry + 1}")
+        print(f"processing entry number {index + 1} of {num_entries}, pos: {entry + 1}")
         prompt = get_currentPrompt(entry)
         # if there is an empty answer just set the rating to bad, no api call needed
         if parsed_json['entries'][entry]['response']['body'] == "":
