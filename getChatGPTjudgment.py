@@ -2,7 +2,7 @@ import argparse
 import copy
 import json
 from datetime import date
-
+from os import path
 from openai import OpenAI
 from tenacity import (retry, stop_after_attempt, wait_random_exponential)
 
@@ -87,10 +87,15 @@ if __name__ == '__main__':
 
     #write out ratings to file
     if not args.output:
-        out_path = f"./{parsed_json['header']['model']}_responses_rated_by_{modelname}.json"
+        out_filename = f"{parsed_json['header']['model']}_responses_rated_by_{modelname}.json"
+        out_path = path.join(path.abspath("."), out_filename)
     else:
-        out_path = args.output.strip("/")
-        out_path = f"/{out_path}/{parsed_json['header']['model']}_responses_rated_by_{modelname}.json"
+        out_dir, out_filename = path.split(args.output)
+        if out_filename:
+            out_path = path.normpath(path.join(out_dir, out_filename))
+        else:
+            out_filename = f"{parsed_json['header']['model']}_responses_rated_by_{modelname}.json"
+            out_path = path.normpath(path.join(out_dir, out_filename))
 
     with open(out_path, "w", encoding="utf-8") as write_file:
         json.dump(parsed_json, write_file, indent=4, ensure_ascii=False)
