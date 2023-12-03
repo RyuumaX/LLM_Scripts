@@ -32,10 +32,12 @@ if __name__ == '__main__':
 
     # define commandline arguments
     cl_argparser = argparse.ArgumentParser(
-        description="Takes a JSON File with emails, LLM Responses to those emails and sends it to an OpenAI model. That model then judges the answers on quality.")
-    cl_argparser.add_argument("-f", "--file", help="The path to the input json file.")
+        description="Takes a JSON File with emails, LLM Responses to those emails and sends it to an OpenAI model. "
+                    "That model then judges the answers on quality.")
+    cl_argparser.add_argument("-f", "--file", help="The path to the input json file.", required=True)
     cl_argparser.add_argument("-o", "--output",
-                              help="Path of the folder to put the output JSON-file in. Defaults to current working dir. Filename defaults to {modelname}_responses.json")
+                              help="Path of the folder to put the output JSON-file in. Defaults to current working dir."
+                                   "Filename defaults to {modelname}_responses.json")
     cl_argparser.add_argument("-m", "--model", help="Model to use for entry",
                               choices=["text-davinci-003", "gpt-3.5-turbo"], default="gpt-3.5-turbo")
     cl_argparser.add_argument("-c", "--count", type=int, help="Number of entries to process from file")
@@ -46,7 +48,7 @@ if __name__ == '__main__':
     args = cl_argparser.parse_args()
     file_path = args.file
     modelname = args.model
-
+    #OpenAI API configuration Object
     client = OpenAI(api_key=args.key)
 
     #create template dict for rating section
@@ -55,9 +57,6 @@ if __name__ == '__main__':
 
     # read in the local LLM's answers
     parsed_json = None
-    if not file_path:
-        file_path = './example_data/output.json'
-
     with open(file_path) as user_file:
         parsed_json = json.load(user_file)
 
@@ -85,7 +84,7 @@ if __name__ == '__main__':
         parsed_json['entries'][entry].update(copy.deepcopy(dict_template))
     parsed_json['header']['ratingSysPrompt'] = SYSTEM_PROMPT
 
-    #write out ratings to file
+    #build output file path
     if not args.output:
         out_filename = f"{parsed_json['header']['model']}_responses_rated_by_{modelname}.json"
         out_path = path.join(path.abspath("."), out_filename)
@@ -97,5 +96,6 @@ if __name__ == '__main__':
             out_filename = f"{parsed_json['header']['model']}_responses_rated_by_{modelname}.json"
             out_path = path.normpath(path.join(out_dir, out_filename))
 
+    # write out ratings to output file
     with open(out_path, "w", encoding="utf-8") as write_file:
         json.dump(parsed_json, write_file, indent=4, ensure_ascii=False)
