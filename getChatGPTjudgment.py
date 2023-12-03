@@ -39,7 +39,7 @@ if __name__ == '__main__':
                               help="Path of the folder to put the output JSON-file in. Defaults to current working dir."
                                    "Filename defaults to {modelname}_responses.json")
     cl_argparser.add_argument("-m", "--model", help="Model to use for entry",
-                              choices=["text-davinci-003", "gpt-3.5-turbo"], default="gpt-3.5-turbo")
+                              choices=["gpt-4-1106-preview", "gpt-3.5-turbo"], default="gpt-3.5-turbo")
     cl_argparser.add_argument("-c", "--count", type=int, help="Number of entries to process from file")
     cl_argparser.add_argument("--start", help="first entry to process from file", default=1, type=int)
     cl_argparser.add_argument("-k", "--key", help="API-Key to use")
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     end = (start + num_entries) if (start + num_entries) < len(parsed_json['entries']) else len(parsed_json['entries'])
     # print the processing parameters
     print(f"using model: {modelname}")
-    print(f"first entry pos: {args.start}")
+    print(f"first entry pos: {start+1}")
     print(f"last entry pos: {end}")
 
     for index, entry in enumerate(list(range(start, end, 1))):
